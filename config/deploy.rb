@@ -1,5 +1,5 @@
 set :application, "cityeatouts.com"
-set :repository,  "git@github.com:railsrumble/the-digitals.git"
+set :repository,  "git://github.com/mechanicles/cityeatouts.git"
 
 role :app, "digitalcodes.org"
 role :web, "digitalcodes.org"
