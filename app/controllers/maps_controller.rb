@@ -13,10 +13,10 @@ class MapsController < ApplicationController
    end
 
 	def locateIp
-		ip = "123.236.183.105";
-		#ip = request.remote_ip;
-		#ips = ip.to_s;
-		url = "http://iplocationtools.com/ip_query.php?ip="+ip;
+		
+		ip = request.remote_ip;
+		ips = ip.to_s;
+		url = "http://iplocationtools.com/ip_query.php?ip="+ips;
 		
 		xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
