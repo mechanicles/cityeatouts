@@ -4,8 +4,12 @@
 <head>
 <title>City Eatouts</title>
 	<!-- maps api, ajax search api, map search control code -->
-
-<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A"
+<% if RAILS_ENV == "development" 
+	api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A" 
+  else api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRTPrwHYue7in5MJ_quyzo6QTb2S_hSb47tsZ_zTCBjtFWDn7nH53Wy4sw" 
+  	end
+ %>
+<script src="http://maps.google.com/maps?file=api&v=2&key=<%= api_key %>"
     type="text/javascript"></script>
 
 <script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A"

@@ -5,7 +5,7 @@ role :app, "digitalcodes.org"
 role :web, "digitalcodes.org"
 role :db, "digitalcodes.org", :primary => true
 
-set :deploy_via, :remote_cache
+
 set :deploy_to, "/home/anil/public_html/#{application}"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
