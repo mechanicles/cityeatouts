@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>City Eatouts</title>
+<title>CityEatouts</title>
 	<!-- maps api, ajax search api, map search control code -->
 <% if RAILS_ENV == "development" 
 	api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A" 
@@ -51,9 +51,6 @@ h4.hotspot:hover {
   text-decoration : underline;
 }
   
-div#results {
-	
-}
 
 </style>
 <style type="text/css">
@@ -198,7 +195,10 @@ function swMapplet(){
 </head>
 <body>
 <div id="header">
-<h1> <span style = " color:green">City</span><span style = "color:#FF0084">Eat<img src ="/images/companyLogo.png">uts</span><span style="font-size:12px; color :black; font-style:italic;vertical-align:baseline;"> Where are you eating today? </span></h1>
+	<logo>
+<h1><a href="/"> <span style = " color:#336699">City</span><span style = "color:#FF0084">Eat<img src ="/images/companyLogo.png">uts</span></a></h1>
+<em><b>" Where are you eating today? "</b></em>
+</logo>
 
 
 <!-- To Handle the form action -->
@@ -218,7 +218,7 @@ function swMapplet(){
  </div>
 
 <div id="content">
-<div id="right">
+<div id="left">
     <!--<div id="chbox">
     	
     	
@@ -235,28 +235,28 @@ function swMapplet(){
 <div id="slideshow2" class="gss">Loading...</div>
 <div id="slideshow3" class="gss">Loading...</div>
 </div>
-<div id = "infoBG" style ="font-family:trebuchet ms,tahoma,helvetica,arial,verdana,sans-serif" >  
-<p style="font-size:1.2em">
-		» City Eatouts is a fun useful application, you can find out cool, best places to eat in the city or near you!. It also helps to find out Pizza Shops, Coffee Shops, Shopping Center,Post offices, Movie Theators, Gas stations in the city. You also get information about the city through the wikimapia and aslo get the photos related to the city... 
-</p>
+<div id = "infoBG">  
 
-<p style="font-size:1.2em">
-		» You do not need to type your current city, CityEatouts  gives your current city name automatically.  
+	<ul><li> City Eatouts is a fun useful application, you can find out cool, best places to eat in the city or near you!. It helps to find out Pizza Shops, Coffee Shops, Shopping Center,Post offices, Movie Theators, Gas stations in the city. You also get information about the city through the wikimapia and also get the photos related to the city... 
+</li>
 
-</p>
-<p style="font-size:1.2em">
-		» You can share the maps with your friends or your family!!!
+<li>
+		You do not need to type your current city, CityEatouts  gives your current city name automatically.  
 
-</p >
-<p style="font-size:1.2em">
-		» CityEatouts gives some recipeies of food from Tastespotting site.   
+</li>
+<li>
+		 You can share the maps with your friends or your family!!!
 
-</p
+</li >
+<li>
+		 CityEatouts gives some recipeies of food from Tastespotting site.   
+</li>
+</ul>
 </div>
 </div>
 </div>
 </fieldset>	
-<div id="left">
+<div id="right">
 	<div class="box">
 			
 			 <div id="hotSpots" style="display:none;">
@@ -295,7 +295,7 @@ vertical-align:top"> Shopping</h4>
 	</div>
 
  <div class="box">
-		<div style="font-size: 0.8em;">contact : <%= @contact%><br /> © 2009 SANTOSH WADGHULE</div>
+		<div style="font-size: 0.8em;">contact : <%= @contact%><br /> © 2009 SANTOSH WADGHULE <br> This is <a href ="http://mechanicles.com">Mechanicles</a></div>
 	</div>
 
 

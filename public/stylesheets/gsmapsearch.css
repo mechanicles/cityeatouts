@@ -174,7 +174,9 @@ div.gsmsc-map-center {
   margin-left : 3px;
 }
 
-.gsmsc-resultsBox {}
+.gsmsc-resultsBox {
+	font-size:0.9em;
+}
 
 .gsmsc-resultsBox .gsmsc-result-list-item {
   padding-top : 1px;
@@ -194,10 +196,12 @@ div.gsmsc-map-center {
 
 .gsmsc-result-controls td.gsmsc-result-list-more-results {
   text-align : left;
+  font-size:0.8em;
 }
 
 .gsmsc-result-controls td.gsmsc-result-list-clear-results {
   text-align : right;
+  font-size:0.8em;
 }
 
 .gsmsc-resultsBox div.gsmsc-result-list-clear-results,

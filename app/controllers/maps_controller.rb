@@ -10,12 +10,21 @@ class MapsController < ApplicationController
 	@maplink = locateIp();
 	
 	
-   end
+    end
 
 	def locateIp
+		if RAILS_ENV == "development"
+			# ip = request.remote_ip;
+			# ips = ip.to_s;
+		ips = "123.236.183.15"
 		
+	   
+	    else
+	  #ips = "123.236.183.15";
 		ip = request.remote_ip;
 		ips = ip.to_s;
+		
+	end
 		url = "http://iplocationtools.com/ip_query.php?ip="+ips;
 		
 		xml_data = Net::HTTP.get_response(URI.parse(url)).body
@@ -60,40 +69,6 @@ class MapsController < ApplicationController
 	
 	def new
 	end
-=begin	
-		def locateIp
-		#!/usr/bin/env ruby -w
-
-		ip = request.remote_ip;
-        ipLocation = "http://iplocationtools.com/ip_query.php?ip=ip.to_s&output=xml"
-		require 'net/http'
-		require 'uri'
-
-		uri = URI.parse('http://www.maxmind.com/app/locate_ip')
-		res = Net::HTTP.post_form(uri,
-  		{ 'ips' => ip.to_s,
-    	  'type' => '', 'u' => '', 'p' => ''
-   		} )
-		fstr = res.body
-
-		fstr.gsub!("Edition Results<\/span><p>","CHECKPOINT")
-		fstr =~ /CHECKPOINT(.+?)<\/table>/m
-		fields = $1.grep(/<(th|td)>/)
-		fields.each do |f|
-  		f.strip!
-  		f.gsub!(/<[^>]+>/,"")
-		end
-
-		(0...13).each do |i|
-  		puts ". #{fields[i]}: #{fields[i+13]}"
-		end
-
-		maplink = "http://maps.google.com/maps?q=#{fields[20]},+#{fields[21]}&iwloc=A&hl=en"
-		#puts ". Google Maps URL: #{maplink}"
-  		return maplink;
-		end 
-=end
-
 
 
 end
