@@ -7,7 +7,7 @@ role :db, "digitalcodes.org", :primary => true
 
 
 set :deploy_to, "/home/anil/public_html/#{application}"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+#set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 set :port, 22
 
@@ -19,10 +19,4 @@ set :user, 'anil'
 set :runner, user
 set :use_sudo, false
 
-desc "Reload Nginx"
-task :reload_nginx do
-  sudo "/etc/init.d/nginx reload"
-end
-
-after "deploy", "reload_nginx"
 after "deploy", "deploy:cleanup"
