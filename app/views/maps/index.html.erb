@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
 <title>CityEatouts</title>
 	<!-- maps api, ajax search api, map search control code -->
-<% if RAILS_ENV == "development" 
-	api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A" 
-  else api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRTPrwHYue7in5MJ_quyzo6QTb2S_hSb47tsZ_zTCBjtFWDn7nH53Wy4sw" 
+<%	if RAILS_ENV == "development" 
+			api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A" 
+  	else 
+			api_key = "ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRTPrwHYue7in5MJ_quyzo6QTb2S_hSb47tsZ_zTCBjtFWDn7nH53Wy4sw" 
   	end
  %>
-<script src="http://maps.google.com/maps?file=api&v=2&key=<%= api_key %>"
-    type="text/javascript"></script>
 
-<script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A"
- type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&key=<%= api_key %>" type="text/javascript"></script>
+
+
+<script 
+src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAfOeCr2o-ANLKEsYTnb7JmRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRx4h4pLZQ2y88iup_95K_GH7da5A" type="text/javascript"></script>
 
 <script src="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.js"
     type="text/javascript"></script>
@@ -35,7 +39,7 @@ div#mapsearch {
       padding: 4px;
 }
   
-  h4.hotspot {
+h4.hotspot {
   font-size : 100%;
   font-weight : normal;
   color : rgb(9, 122, 182);
@@ -48,65 +52,61 @@ div#mapsearch {
 
 h4.hotspot:hover {
   color : rgb(237, 92, 11);
-  text-decoration : underline;
+  text-decoration : none;
+}
+</style>
+
+<style type="text/css">
+div#slideshowbox{
+	width:350px;
+	height:100px;
+    	
+}
+
+div#slideshow1{
+	width:80;
+	float:left;
+} 
+  
+div#slideshow2{
+	width:80px;
+	float:left;
+	margin-left: 10px;
 }
   
-
-</style>
-<style type="text/css">
-    div#slideshowbox{
-    	width:350px;
-    	height:100px;
-    	
-    }
-
-  div#slideshow1{
-  	width:80;
-  	float:left;
-  	 
-  	
-  } 
-  div#slideshow2{
-  	width:80px;
-  	float:left;
-    margin-left: 10px;
-  	
-  }
-  
-   div#slideshow3{
-  	width:80px;
-  	float:left;
-  	margin-left:10px;
-  } 
+div#slideshow3{
+	width:80px;
+	float:left;
+	margin-left:10px;
+} 
    
 
-   .gss a img {border : none;}
-    .gss {
-      width: 80px;
-      height: 80px;
-      color: #dddddd;
-      background-color:#AC7FB8;
-      padding: 6px;
-    }
+.gss a img {border : none;}
+.gss {
+	width: 80px;
+  height: 80px;
+  color: #dddddd;
+  background-color:#AC7FB8;
+  padding: 6px;
+}
 
-  </style>
+</style>
     
 
 <script type="text/javascript">
 <!--
 var mapSearchControl;
 function swMapplet(){
- var container=document.getElementById("mapsearch");
- var location=document.getElementById("gMapLocal").value.replace(/<\/?[^>]+>/gi,"");
+ var container = document.getElementById("mapsearch");
+ var location = document.getElementById("gMapLocal").value.replace(/<\/?[^>]+>/gi,"");
  var hotspotsList=[
   {element: document.getElementById("hs01"), query: "restaurants"},
   {element: document.getElementById("hs02"), query: "pizza"},
   {element: document.getElementById("hs03"), query: "coffee"},
   {element: document.getElementById("hs04"), query: "bar"},
-  {element: document.getElementById("hs05"), query: "post office"},
-  {element: document.getElementById("hs06"), query: "gas station"},
-  {element: document.getElementById("hs07"), query: "movie theater"},
-  {element: document.getElementById("hs08"), query: "shopping"}
+  {element: document.getElementById("hs05"), query: "movie theater"},
+  {element: document.getElementById("hs06"), query: "shopping"},
+	{element: document.getElementById("hs07"), query: "tourist places"}
  ];
  var mapPrefs={
   idleMapZoom: GSmapSearchControl.ACTIVE_MAP_ZOOM-1,
@@ -122,7 +122,7 @@ function swMapplet(){
  if(location&&location!=''){
   mapSearchControl=new GSmapSearchControl(container,location,mapPrefs);
   document.getElementById("mapsearch").style.display='block';
-  document.getElementById("hotSpots").style.display='block';
+  document.getElementById("box1").style.display='block';
   document.getElementById("gMapTitle").innerHTML=location;
  }
  else{
@@ -188,17 +188,17 @@ function swMapplet(){
     google.setOnLoadCallback(load);
   </script>    
 
-
-
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="screen" />
 
 </head>
+
 <body>
 <div id="header">
 	<logo>
-<h1><a href="/"> <span style = " color:#336699">City</span><span style = "color:#FF0084">Eat<img src ="/images/companyLogo.png">uts</span></a></h1>
-<em><b>" Where are you eating today? "</b></em>
-</logo>
+		<h1><a href="/"> <span style = " color:#336699">City</span><span style = "color:#FF0084">Eat<img src ="/images/companyLogo.png">uts</span></a>
+		</h1>
+		<em><b> - Where are you eating today?</b></em>
+	</logo>
 
 
 <!-- To Handle the form action -->
@@ -206,7 +206,8 @@ function swMapplet(){
   <form action="#" onsubmit="swMapplet(); return false;">
       
         <b>ADD AN ADDRESS:</b> <input id="gMapLocal" type="text" size="60" value="<%= @maplink%>" />
-        <input type="button" value="Go!" onclick="swMapplet();">
+        <input type="button" value="Go!" onclick="swMapplet();"><br />
+				
       </form>
 </div>     
   <ul id="nav">
@@ -226,7 +227,7 @@ function swMapplet(){
 		<input type="checkbox" onclick="switchLayer(this.checked,pano)">Panoramio
 	</div>-->
 
-    <div id="mapsearch">
+<div id="mapsearch">
 <fieldset style="border:3px solid #828282 ;background-color:#E7F1F8;padding-left : 15px;padding-right : 15px  ">
 <legend style="font-size:2em; border:2px fuchsia ;background-color:#BF9F81 ">Let's eat out !</legend>
 <br>
@@ -257,9 +258,9 @@ function swMapplet(){
 </div>
 </fieldset>	
 <div id="right">
-	<div class="box">
+	<div id="box1" style="display:none;">
 			
-			 <div id="hotSpots" style="display:none;">
+			 <div id="hotSpots">
 			<h2 class="hotspot-header">Find something near <span id="gMapTitle" style="display:block;font-size:0.8em;color:#595;"></span></h2><br />
 			<h4 id="hs01" class="hotspot"><img src ="/images/smallRestaurant.png" style ="border:0 none;vertical-align:top; decoration:none"> Restaurants</h4>
 			<h4 id="hs02" class="hotspot"><img src ="/images/smallPizza.png" style ="border:0 none;
@@ -268,23 +269,20 @@ vertical-align:top; decoration:none"> Pizaa Shop</h4>
 vertical-align:top"> Coffee Shop</h4>
 			<h4 id="hs04" class="hotspot"><img src ="/images/smallBar.png " style ="border:0 none;
 vertical-align:top"> Bar</h4>
-			<h4 id="hs05" class="hotspot"><img src ="/images/smallPost.png " style ="border:0 none;
-vertical-align:top"> Post Office</h4>
-			<h4 id="hs06" class="hotspot"><img src ="/images/smallGas.png " style ="border:0 none;
-vertical-align:top"> Gas Station</h4>
-			<h4 id="hs07" class="hotspot"><img src ="/images/smallMovie.png " style ="border:0 none;
+			<h4 id="hs05" class="hotspot"><img src ="/images/smallMovie.png " style ="border:0 none;
 vertical-align:top"> Movie Theater</h4>
-			<h4 id="hs08" class="hotspot"><img src ="/images/smallShop.png " style ="border:0 none;
+			<h4 id="hs06" class="hotspot"><img src ="/images/smallShop.png " style ="border:0 none;
 vertical-align:top"> Shopping</h4>
+			<h4 id="hs07" class="hotspot"><img src ="/images/smallTourist.png " style ="border:0 none;
+vertical-align:top"> Tourist Places</h4>
 			</div>
 			
 	</div>
-			
-	<div class="box">
+	
+
+		<div id = "results" style="display:block;"><b>Your current city is <span style = "color:green"><%= @city%></span> </b></div>
 				
-			<div id = "results" style="display:block;"><b>Your current city is <span style = "color:green"><%= @city%></span> </b></div>
-				
-	</div>
+
 		
     <div class="box">
 	   	   
@@ -297,10 +295,6 @@ vertical-align:top"> Shopping</h4>
  <div class="box">
 		<div style="font-size: 0.8em;">contact : <%= @contact%><br /> © 2009 SANTOSH WADGHULE <br> This is <a href ="http://mechanicles.com">Mechanicles</a></div>
 	</div>
-
-
-
-
 
 </div>
 </div>
